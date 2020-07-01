@@ -1,137 +1,137 @@
-#metadataBlock	name	dataverseAlias	displayName												
-	cmm-cessda		CESSDA Metadata Model												
-#datasetField	name	title	description	watermark	 fieldType	displayOrder	displayFormat	advancedSearchField	allowControlledVocabulary	allowmultiples	facetable	displayoncreate	required	parent	metadatablock_id
-	cmm-geographicCoverage	Geographic Coverage	Information on the geographic coverage of the data. Includes the total geographic scope of the data.		none	0		FALSE	FALSE	TRUE	FALSE	TRUE	TRUE		cmm-cessda
-	cmm-country	Country / Nation	The country or nation that the Dataset is about.		text	1		TRUE	TRUE	FALSE	TRUE	TRUE	TRUE	cmm-geographicCoverage	cmm-cessda
-	cmm-state	State/Province	The state or province that the Dataset is about. Use GeoNames for correct spelling and avoid abbreviations.		text	2		TRUE	FALSE	FALSE	TRUE	TRUE	FALSE	cmm-geographicCoverage	cmm-cessda
-	cmm-city	City	The name of the city that the Dataset is about. Use GeoNames for correct spelling and avoid abbreviations.		text	3		TRUE	FALSE	FALSE	TRUE	TRUE	FALSE	cmm-geographicCoverage	cmm-cessda
+#metadataBlock	name	dataverseAlias	displayName
+	cmm-cessda		CESSDA Metadata Model
+#datasetField	name	title	description	watermark	 fieldType	displayOrder	displayFormat	advancedSearchField	allowControlledVocabulary	allowmultiples	facetable	displayoncreate	required	parent	metadatablock_id	identifier
+	cmm-geographicCoverage	Geographic Coverage	Information on the geographic coverage of the data. Includes the total geographic scope of the data.		none	0		FALSE	FALSE	TRUE	FALSE	TRUE	TRUE		cmm-cessda	https://ddialliance.org/Specification/DDI-Lifecycle/3.2/XMLSchema/FieldLevelDocumentation/schemas/reusable_xsd/complexTypes/GeographicCoverageType.html
+	cmm-country	Country / Nation	The country or nation that the Dataset is about.		text	1		TRUE	TRUE	FALSE	TRUE	TRUE	TRUE	cmm-geographicCoverage	cmm-cessda	https://ddialliance.org/Specification/DDI-Lifecycle/3.2/XMLSchema/FieldLevelDocumentation/schemas/reusable_xsd/elements/Country.html
+	cmm-state	State/Province	The state or province that the Dataset is about. Use GeoNames for correct spelling and avoid abbreviations.		text	2		TRUE	FALSE	FALSE	TRUE	TRUE	FALSE	cmm-geographicCoverage	cmm-cessda	https://ddialliance.org/Specification/DDI-Lifecycle/3.2/XMLSchema/FieldLevelDocumentation/schemas/archive_xsd/elements/StateProvince.html
+	cmm-city	City	The name of the city that the Dataset is about. Use GeoNames for correct spelling and avoid abbreviations.		text	3		TRUE	FALSE	FALSE	TRUE	TRUE	FALSE	cmm-geographicCoverage	cmm-cessda	https://ddialliance.org/Specification/DDI-Lifecycle/3.2/XMLSchema/FieldLevelDocumentation/schemas/archive_xsd/elements/CityPlaceLocal.html
 	cmm-otherGeographicCoverage	Other	Other information on the geographic coverage of the data.		text	4		FALSE	FALSE	FALSE	FALSE	TRUE	FALSE	cmm-geographicCoverage	cmm-cessda
-	cmm-geographicUnit	Geographic Unit	Lowest level of geographic aggregation covered by the Dataset, e.g., village, county, region.		text	5		TRUE	FALSE	TRUE	TRUE	FALSE	FALSE		cmm-cessda
-	cmm-geographicBoundingBox	Geographic Bounding Box	The fundamental geometric description for any Dataset that models geography is the geographic bounding box. It describes the minimum box, defined by west and east longitudes and north and south latitudes, which includes the largest geographic extent of the Dataset's geographic coverage. This element is used in the first pass of a coordinate-based search. Inclusion of this element in the codebook is recommended, but is required if the bound polygon box is included.		none	6		FALSE	FALSE	TRUE	FALSE	FALSE	FALSE		cmm-cessda
-	cmm-westLongitude	West Longitude	Westernmost coordinate delimiting the geographic extent of the Dataset. A valid range of values, expressed in decimal degrees, is -180,0 <= West Bounding Longitude Value <= 180,0.		text	7		FALSE	FALSE	FALSE	FALSE	FALSE	FALSE	cmm-geographicBoundingBox	cmm-cessda
-	cmm-eastLongitude	East Longitude	Easternmost coordinate delimiting the geographic extent of the Dataset. A valid range of values, expressed in decimal degrees, is -180,0 <= East Bounding Longitude Value <= 180,0.		text	8		FALSE	FALSE	FALSE	FALSE	FALSE	FALSE	cmm-geographicBoundingBox	cmm-cessda
-	cmm-northLongitude	North Latitude	Northernmost coordinate delimiting the geographic extent of the Dataset. A valid range of values, expressed in decimal degrees, is -90,0 <= North Bounding Latitude Value <= 90,0.		text	9		FALSE	FALSE	FALSE	FALSE	FALSE	FALSE	cmm-geographicBoundingBox	cmm-cessda
-	cmm-southLongitude	South Latitude	Southernmost coordinate delimiting the geographic extent of the Dataset. A valid range of values, expressed in decimal degrees, is -90,0 <= South Bounding Latitude Value <= 90,0.		text	10		FALSE	FALSE	FALSE	FALSE	FALSE	FALSE	cmm-geographicBoundingBox	cmm-cessda
-	cmm-unitOfAnalysis	Unit of Analysis	Basic unit of analysis or observation that this Dataset describes. Select from the available options in the DDI Controlled Vocabularies for Analysis Unit.		text	11		TRUE	TRUE	TRUE	TRUE	FALSE	FALSE		cmm-cessda
-	cmm-universe	Universe	Description of the population covered by the data in the file; the group of people or other elements that are the object of the study and to which the study results refer. Age, nationality, and residence commonly help to delineate a given universe, but any number of other factors may be used, such as age limits, sex, marital status, race, ethnic group, nationality, income, veteran status, criminal convictions, and more. The universe may consist of elements other than persons, such as housing units, court cases, deaths, countries, and so on. In general, it should be possible to tell from the description of the universe whether a given individual or element is a member of the population under study. Also known as the universe of interest, population of interest, and target population.		textbox	12		TRUE	FALSE	FALSE	TRUE	FALSE	FALSE		cmm-cessda
-	cmm-timeMethod	Time Method	The time method or time dimension of the data collection. Select from the available options in the DDI Controlled Vocabularies for Time method.		text	13		TRUE	TRUE	TRUE	TRUE	FALSE	FALSE		cmm-cessda
-	cmm-dataCollector	Data Collector	Individual, agency or organization responsible for administering the questionnaire or interview or compiling the data.	FamilyName, GivenName or Organization	text	14		FALSE	FALSE	TRUE	FALSE	FALSE	FALSE		cmm-cessda
-	cmm-frequencyOfDataCollection	Frequency	If the data collected includes more than one point in time, indicate the frequency with which the data was collected; that is, monthly, quarterly, or other.		text	15		TRUE	FALSE	FALSE	TRUE	FALSE	FALSE		cmm-cessda
+	cmm-geographicUnit	Geographic Unit	Lowest level of geographic aggregation covered by the Dataset, e.g., village, county, region.		text	5		TRUE	FALSE	TRUE	TRUE	FALSE	FALSE		cmm-cessda	https://ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/field_level_documentation_files/schemas/codebook_xsd/elements/geogUnit.html
+	cmm-geographicBoundingBox	Geographic Bounding Box	The fundamental geometric description for any Dataset that models geography is the geographic bounding box. It describes the minimum box, defined by west and east longitudes and north and south latitudes, which includes the largest geographic extent of the Dataset's geographic coverage. This element is used in the first pass of a coordinate-based search. Inclusion of this element in the codebook is recommended, but is required if the bound polygon box is included.		none	6		FALSE	FALSE	TRUE	FALSE	FALSE	FALSE		cmm-cessda	https://ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/field_level_documentation_files/schemas/codebook_xsd/elements/geoBndBox.html
+	cmm-westLongitude	West Longitude	Westernmost coordinate delimiting the geographic extent of the Dataset. A valid range of values, expressed in decimal degrees, is -180,0 <= West Bounding Longitude Value <= 180,0.		text	7		FALSE	FALSE	FALSE	FALSE	FALSE	FALSE	cmm-geographicBoundingBox	cmm-cessda	https://ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/field_level_documentation_files/schemas/codebook_xsd/elements/westBL.html
+	cmm-eastLongitude	East Longitude	Easternmost coordinate delimiting the geographic extent of the Dataset. A valid range of values, expressed in decimal degrees, is -180,0 <= East Bounding Longitude Value <= 180,0.		text	8		FALSE	FALSE	FALSE	FALSE	FALSE	FALSE	cmm-geographicBoundingBox	cmm-cessda	https://ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/field_level_documentation_files/schemas/codebook_xsd/elements/eastBL.html
+	cmm-northLongitude	North Latitude	Northernmost coordinate delimiting the geographic extent of the Dataset. A valid range of values, expressed in decimal degrees, is -90,0 <= North Bounding Latitude Value <= 90,0.		text	9		FALSE	FALSE	FALSE	FALSE	FALSE	FALSE	cmm-geographicBoundingBox	cmm-cessda	https://ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/field_level_documentation_files/schemas/codebook_xsd/elements/northBL.html
+	cmm-southLongitude	South Latitude	Southernmost coordinate delimiting the geographic extent of the Dataset. A valid range of values, expressed in decimal degrees, is -90,0 <= South Bounding Latitude Value <= 90,0.		text	10		FALSE	FALSE	FALSE	FALSE	FALSE	FALSE	cmm-geographicBoundingBox	cmm-cessda	https://ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/field_level_documentation_files/schemas/codebook_xsd/elements/southBL.html
+	cmm-unitOfAnalysis	Unit of Analysis	Basic unit of analysis or observation that this Dataset describes. Select from the available options in the DDI Controlled Vocabularies for Analysis Unit.		text	11		TRUE	TRUE	TRUE	TRUE	FALSE	FALSE		cmm-cessda	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html
+	cmm-universe	Universe	Description of the population covered by the data in the file; the group of people or other elements that are the object of the study and to which the study results refer. Age, nationality, and residence commonly help to delineate a given universe, but any number of other factors may be used, such as age limits, sex, marital status, race, ethnic group, nationality, income, veteran status, criminal convictions, and more. The universe may consist of elements other than persons, such as housing units, court cases, deaths, countries, and so on. In general, it should be possible to tell from the description of the universe whether a given individual or element is a member of the population under study. Also known as the universe of interest, population of interest, and target population.		textbox	12		TRUE	FALSE	FALSE	TRUE	FALSE	FALSE		cmm-cessda	https://ddialliance.org/Specification/DDI-CV/TimeMethod_1.2.html
+	cmm-timeMethod	Time Method	The time method or time dimension of the data collection. Select from the available options in the DDI Controlled Vocabularies for Time method.		text	13		TRUE	TRUE	TRUE	TRUE	FALSE	FALSE		cmm-cessda	https://ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/field_level_documentation_files/schemas/codebook_xsd/elements/dataCollector.html
+	cmm-dataCollector	Data Collector	Individual, agency or organization responsible for administering the questionnaire or interview or compiling the data.	FamilyName, GivenName or Organization	text	14		FALSE	FALSE	TRUE	FALSE	FALSE	FALSE		cmm-cessda	https://ddialliance.org/Specification/DDI-Lifecycle/3.0/XMLSchema/Documentation/datacollection.html#DataCollectionFrequencyType
+	cmm-frequencyOfDataCollection	Frequency	If the data collected includes more than one point in time, indicate the frequency with which the data was collected; that is, monthly, quarterly, or other.		text	15		TRUE	FALSE	FALSE	TRUE	FALSE	FALSE		cmm-cessda	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html
 	cmm-samplingProcedure	Sampling Procedure	Type of sample and sample design used to select the survey respondents to represent the population. Select from the available options in the DDI Controlled Vocabularies for Sampling Procedure.		text	16		FALSE	TRUE	TRUE	FALSE	FALSE	FALSE		cmm-cessda
-	cmm-samplingProcedureFreeText	Sampling Procedure Text	Type of sample and sample design used to select the survey respondents to represent the population.		textbox	17		FALSE	FALSE	FALSE	FALSE	FALSE	FALSE		cmm-cessda
+	cmm-samplingProcedureFreeText	Sampling Procedure Text	Type of sample and sample design used to select the survey respondents to represent the population.		textbox	17		FALSE	FALSE	FALSE	FALSE	FALSE	FALSE		cmm-cessda	https://ddialliance.org/Specification/DDI-Codebook/2.5/XMLSchema/field_level_documentation_files/schemas/codebook_xsd/elements/targetSampleSize.html
 	cmm-targetSampleSize	Target Sample Size	Specific information regarding the target sample size, actual sample size, and the formula used to determine this.		none	18		FALSE	FALSE	FALSE	FALSE	FALSE	FALSE		cmm-cessda
 	cmm-targetSampleActualSize	Actual	Actual sample size.	Enter an integer...	int	19		FALSE	FALSE	FALSE	FALSE	FALSE	FALSE	cmm-targetSampleSize	cmm-cessda
 	cmm-targetSampleSizeFormula	Formula	Formula used to determine target sample size.		text	20		FALSE	FALSE	FALSE	FALSE	FALSE	FALSE	cmm-targetSampleSize	cmm-cessda
 	cmm-deviationsFromSampleDesign	Major Deviations for Sample Design	Show correspondence as well as discrepancies between the sampled units (obtained) and available statistics for the population (age, sex-ratio, marital status, etc.) as a whole.		text	21		FALSE	FALSE	FALSE	FALSE	FALSE	FALSE		cmm-cessda
 	cmm-collectionMode	Collection Mode	Method used to collect the data; instrumentation characteristics. Select from the available options in the DDI Controlled Vocabularies for Mode of Collection.		text	22		FALSE	TRUE	TRUE	FALSE	FALSE	FALSE		cmm-cessda
 	cmm-researchInstrument	Type of Research Instrument	Type of data collection instrument used. Select from the available options in the DDI Controlled Vocabularies for Type of Instrument.		text	23		FALSE	TRUE	TRUE	FALSE	FALSE	FALSE		cmm-cessda
-	cmm-dataCollectionSituation	Characteristics of Data Collection Situation	Description of noteworthy aspects of the data collection situation. Includes information on factors such as cooperativeness of respondents, duration of interviews, number of call backs, or similar.		textbox	24		FALSE	FALSE	FALSE	FALSE	FALSE	FALSE		cmm-cessda
+	cmm-dataCollectionSituation	Characteristics of Data Collection Situation	Description of noteworthy aspects of the data collection situation. Includes information on factors such as cooperativeness of respondents, duration of interviews, number of call backs, or similar.		textbox	24		FALSE	FALSE	FALSE	FALSE	FALSE	FALSE		cmm-cessda	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_2.0.html
 	cmm-actionsToMinimizeLoss	Actions to Minimize Losses	Summary of actions taken to minimize data loss. Include information on actions such as follow-up visits, supervisory checks, historical matching, estimation, and so on.		text	25		FALSE	FALSE	FALSE	FALSE	FALSE	FALSE		cmm-cessda
 	cmm-controlOperations	Control Operations	Control OperationsMethods to facilitate data control performed by the primary investigator or by the data archive.		text	26		FALSE	FALSE	FALSE	FALSE	FALSE	FALSE		cmm-cessda
 	cmm-weighting	Weighting	The use of sampling procedures might make it necessary to apply weights to produce accurate statistical results. Describes the criteria for using weights in analysis of a collection. If a weighting formula or coefficient was developed, the formula is provided, its elements are defined, and it is indicated how the formula was applied to the data.		textbox	27		FALSE	FALSE	FALSE	FALSE	FALSE	FALSE		cmm-cessda
 	cmm-cleaningOperations	Cleaning Operations	Methods used to clean the data collection, such as consistency checking, wildcode checking, or other.		text	28		FALSE	FALSE	FALSE	FALSE	FALSE	FALSE		cmm-cessda
 	cmm-responseRate	Response Rate	Percentage of sample members who provided information.		textbox	29		TRUE	FALSE	FALSE	TRUE	FALSE	FALSE		cmm-cessda
-#controlledVocabulary	DatasetField	Value	identifier	displayOrder											
-	cmm-unitOfAnalysis	Individual	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Individual	0											
-	cmm-unitOfAnalysis	Organization	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Organization	1											
-	cmm-unitOfAnalysis	Family	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Family	2											
-	cmm-unitOfAnalysis	Family: Household family	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Family: Household family	3											
-	cmm-unitOfAnalysis	Household	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Household	4											
-	cmm-unitOfAnalysis	Housing Unit	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Housing Unit	5											
-	cmm-unitOfAnalysis	Event/Process	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Event/Process	6											
-	cmm-unitOfAnalysis	Geographic Unit	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Geographic Unit	7											
-	cmm-unitOfAnalysis	Time Unit	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Time Unit	8											
-	cmm-unitOfAnalysis	Text Unit	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Text Unit	9											
-	cmm-unitOfAnalysis	Group	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Group	10											
-	cmm-unitOfAnalysis	Object	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Object	11											
-	cmm-unitOfAnalysis	Other	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Other	12											
-	cmm-timeMethod	Longitudinal	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Longitudinal	0											
-	cmm-timeMethod	Longitudinal: Cohort/Event-based	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Longitudinal: Cohort/Event-based	1											
-	cmm-timeMethod	Longitudinal: Trend/Repeated cross-section	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Longitudinal: Trend/Repeated cross-section	2											
-	cmm-timeMethod	Longitudinal: Panel	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Longitudinal: Panel	3											
-	cmm-timeMethod	Longitudinal: Panel: Continuous	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Longitudinal: Panel: Continuous	4											
-	cmm-timeMethod	Longitudinal: Panel: Interval	https://ddialliance.org/Specification/DDI-CV/TimeMethod_1.2.html#Longitudinal: Panel: Interval	5											
-	cmm-timeMethod	Time Series	https://ddialliance.org/Specification/DDI-CV/TimeMethod_1.2.html#Time Series	6											
-	cmm-timeMethod	TimeSeries: Continuous	https://ddialliance.org/Specification/DDI-CV/TimeMethod_1.2.html#TimeSeries: Continuous	7											
-	cmm-timeMethod	TimeSeries: Discrete	https://ddialliance.org/Specification/DDI-CV/TimeMethod_1.2.html#TimeSeries: Discrete	8											
-	cmm-timeMethod	Cross-section	https://ddialliance.org/Specification/DDI-CV/TimeMethod_1.2.html#Cross-section	9											
-	cmm-timeMethod	Cross-section ad-hoc follow-up	https://ddialliance.org/Specification/DDI-CV/TimeMethod_1.2.html#Cross-section ad-hoc follow-up	10											
-	cmm-timeMethod	Other	https://ddialliance.org/Specification/DDI-CV/TimeMethod_1.2.html#Other	11											
-	cmm-samplingProcedure	Total universe/Complete enumeration	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Total universe/Complete enumeration	0											
-	cmm-samplingProcedure	Probability	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Probability	1											
-	cmm-samplingProcedure	Probability: Simple random	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Probability: Simple random	2											
-	cmm-samplingProcedure	Probability: Systematic random	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Probability: Systematic random	3											
-	cmm-samplingProcedure	Probability: Stratified	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Probability: Stratified	4											
-	cmm-samplingProcedure	Probability: Stratified: Proportional	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Probability: Stratified: Proportional	5											
-	cmm-samplingProcedure	Probability: Stratified: Disproportional	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Probability: Stratified: Disproportional	6											
-	cmm-samplingProcedure	Probability: Cluster	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Probability: Cluster	7											
-	cmm-samplingProcedure	Probability: Cluster: Simple random	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Probability: Cluster: Simple random	8											
-	cmm-samplingProcedure	Probability: Cluster: Stratified random	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Probability: Cluster: Stratified random	9											
-	cmm-samplingProcedure	Probability: Multistage	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Probability: Multistage	10											
-	cmm-samplingProcedure	Non-probability	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Non-probability	11											
-	cmm-samplingProcedure	Non-probability: Availability	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Non-probability: Availability	12											
-	cmm-samplingProcedure	Non-probability: Purposive	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Non-probability: Purposive	13											
-	cmm-samplingProcedure	Non-probability: Quota	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Non-probability: Quota	14											
-	cmm-samplingProcedure	Non-probability: Respondent-assisted	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Non-probability: Respondent-assisted	15											
-	cmm-samplingProcedure	Mixed probability and non-probability	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Mixed probability and non-probability	16											
-	cmm-samplingProcedure	Other	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Other	17											
-	cmm-collectionMode	Interview	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Interview	0											
-	cmm-collectionMode	Face-to-face interview	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Face-to-face interview	1											
-	cmm-collectionMode	Face-to-face interview: Computer-assisted (CAPI/CAMI)	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Face-to-face interview: Computer-assisted (CAPI/CAMI)	2											
-	cmm-collectionMode	Face-to-face interview: Paper-and-pencil (PAPI)	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Face-to-face interview: Paper-and-pencil (PAPI)	3											
-	cmm-collectionMode	Telephone interview	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Telephone interview	4											
-	cmm-collectionMode	Telephone interview: Computer-assisted (CATI)	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Telephone interview: Computer-assisted (CATI)	5											
-	cmm-collectionMode	E-mail interview	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#E-mail interview	6											
-	cmm-collectionMode	Web-based interview	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Web-based interview	7											
-	cmm-collectionMode	Self-administered questionnaire	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Self-administered questionnaire	8											
-	cmm-collectionMode	Self-administered questionnaire: E-mail	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Self-administered questionnaire: E-mail	9											
-	cmm-collectionMode	Self-administered questionnaire: Paper	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Self-administered questionnaire: Paper	10											
-	cmm-collectionMode	Self-administered questionnaire: Messaging (SMS/MMS)	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Self-administered questionnaire: Messaging (SMS/MMS)	11											
-	cmm-collectionMode	Self-administered questionnaire: Web-based (CAWI)	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Self-administered questionnaire: Web-based (CAWI)	12											
-	cmm-collectionMode	Self-administered questionnaire: Computer-assisted (CASI)	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Self-administered questionnaire: Computer-assisted (CASI)	13											
-	cmm-collectionMode	Focus group	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Focus group	14											
-	cmm-collectionMode	Face-to-face focus group	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Face-to-face focus group	15											
-	cmm-collectionMode	Telephone focus group	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Telephone focus group	16											
-	cmm-collectionMode	Online focus group	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Online focus group	17											
-	cmm-collectionMode	Self-administered writings and/or diaries	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Self-administered writings and/or diaries	18											
-	cmm-collectionMode	Self-administered writings and/or diaries: E-mail	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Self-administered writings and/or diaries: E-mail	19											
-	cmm-collectionMode	Self-administered writings and/or diaries: Paper	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Self-administered writings and/or diaries: Paper	20											
-	cmm-collectionMode	Self-administered writings and/or diaries: Web-based	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Self-administered writings and/or diaries: Web-based	21											
-	cmm-collectionMode	Observation	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Observation	22											
-	cmm-collectionMode	Field observation	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Field observation	23											
-	cmm-collectionMode	Participant field observation	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Participant field observation	24											
-	cmm-collectionMode	Non-participant field observation	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Non-participant field observation	25											
-	cmm-collectionMode	Laboratory observation	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Laboratory observation	26											
-	cmm-collectionMode	Participant laboratory observation	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Participant laboratory observation	27											
-	cmm-collectionMode	Non-participant laboratory observation	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Non-participant laboratory observation	28											
-	cmm-collectionMode	Computer-based observation	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Computer-based observation	29											
-	cmm-collectionMode	Experiment	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Experiment	30											
-	cmm-collectionMode	Laboratory experiment	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Laboratory experiment	31											
-	cmm-collectionMode	Field/Intervention experiment	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Field/Intervention experiment	32											
-	cmm-collectionMode	Web-based experiment	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Web-based experiment	33											
-	cmm-collectionMode	Recording	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Recording	34											
-	cmm-collectionMode	Content coding	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Content coding	35											
-	cmm-collectionMode	Transcription	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Transcription	36											
-	cmm-collectionMode	Compilation/Synthesis	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Compilation/Synthesis	37											
-	cmm-collectionMode	Summary	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Summary	38											
-	cmm-collectionMode	Aggregation	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Aggregation	39											
-	cmm-collectionMode	Simulation	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Simulation	40											
-	cmm-collectionMode	Measurements and tests	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Measurements and tests	41											
-	cmm-collectionMode	Educational measurements and tests	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Educational measurements and tests	42											
-	cmm-collectionMode	Physical measurements and tests	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Physical measurements and tests	43											
-	cmm-collectionMode	Psychological measurements and tests	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Psychological measurements and tests	44											
-	cmm-collectionMode	Other	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Other	45											
-	cmm-researchInstrument	Questionnaire	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Questionnaire	0											
-	cmm-researchInstrument	Structured questionnaire	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Structured questionnaire	1											
-	cmm-researchInstrument	Semi-structured questionnaire	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Semi-structured questionnaire	2											
-	cmm-researchInstrument	Unstructured questionnaire	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Unstructured questionnaire	3											
-	cmm-researchInstrument	Interview scheme and/or themes	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Interview scheme and/or themes	4											
-	cmm-researchInstrument	Data collection guidelines	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Data collection guidelines	5											
-	cmm-researchInstrument	Data collection guidelines: Observation guide	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Data collection guidelines: Observation guide	6											
-	cmm-researchInstrument	Data collection guidelines: Discussion guide	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Data collection guidelines: Discussion guide	7											
-	cmm-researchInstrument	Data collection guidelines: Self-administered writings guide	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Data collection guidelines: Self-administered writings guide	8											
-	cmm-researchInstrument	Data collection guidelines: Secondary data collection guide	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Data collection guidelines: Secondary data collection guide	9											
-	cmm-researchInstrument	Participant tasks	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Participant tasks	10											
-	cmm-researchInstrument	Technical instrument(s)	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Technical instrument(s)	11											
-	cmm-researchInstrument	Programming script	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Programming script	12											
-	cmm-researchInstrument	Other	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Other	13											
+#controlledVocabulary	DatasetField	Value	identifier	displayOrder
+	cmm-unitOfAnalysis	Individual	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Individual	0
+	cmm-unitOfAnalysis	Organization	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Organization	1
+	cmm-unitOfAnalysis	Family	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Family	2
+	cmm-unitOfAnalysis	Family: Household family	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Family: Household family	3
+	cmm-unitOfAnalysis	Household	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Household	4
+	cmm-unitOfAnalysis	Housing Unit	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Housing Unit	5
+	cmm-unitOfAnalysis	Event/Process	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Event/Process	6
+	cmm-unitOfAnalysis	Geographic Unit	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Geographic Unit	7
+	cmm-unitOfAnalysis	Time Unit	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Time Unit	8
+	cmm-unitOfAnalysis	Text Unit	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Text Unit	9
+	cmm-unitOfAnalysis	Group	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Group	10
+	cmm-unitOfAnalysis	Object	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Object	11
+	cmm-unitOfAnalysis	Other	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Other	12
+	cmm-timeMethod	Longitudinal	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Longitudinal	0
+	cmm-timeMethod	Longitudinal: Cohort/Event-based	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Longitudinal: Cohort/Event-based	1
+	cmm-timeMethod	Longitudinal: Trend/Repeated cross-section	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Longitudinal: Trend/Repeated cross-section	2
+	cmm-timeMethod	Longitudinal: Panel	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Longitudinal: Panel	3
+	cmm-timeMethod	Longitudinal: Panel: Continuous	https://ddialliance.org/Specification/DDI-CV/AnalysisUnit_1.0.0.html#Longitudinal: Panel: Continuous	4
+	cmm-timeMethod	Longitudinal: Panel: Interval	https://ddialliance.org/Specification/DDI-CV/TimeMethod_1.2.html#Longitudinal: Panel: Interval	5
+	cmm-timeMethod	Time Series	https://ddialliance.org/Specification/DDI-CV/TimeMethod_1.2.html#Time Series	6
+	cmm-timeMethod	TimeSeries: Continuous	https://ddialliance.org/Specification/DDI-CV/TimeMethod_1.2.html#TimeSeries: Continuous	7
+	cmm-timeMethod	TimeSeries: Discrete	https://ddialliance.org/Specification/DDI-CV/TimeMethod_1.2.html#TimeSeries: Discrete	8
+	cmm-timeMethod	Cross-section	https://ddialliance.org/Specification/DDI-CV/TimeMethod_1.2.html#Cross-section	9
+	cmm-timeMethod	Cross-section ad-hoc follow-up	https://ddialliance.org/Specification/DDI-CV/TimeMethod_1.2.html#Cross-section ad-hoc follow-up	10
+	cmm-timeMethod	Other	https://ddialliance.org/Specification/DDI-CV/TimeMethod_1.2.html#Other	11
+	cmm-samplingProcedure	Total universe/Complete enumeration	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Total universe/Complete enumeration	0
+	cmm-samplingProcedure	Probability	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Probability	1
+	cmm-samplingProcedure	Probability: Simple random	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Probability: Simple random	2
+	cmm-samplingProcedure	Probability: Systematic random	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Probability: Systematic random	3
+	cmm-samplingProcedure	Probability: Stratified	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Probability: Stratified	4
+	cmm-samplingProcedure	Probability: Stratified: Proportional	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Probability: Stratified: Proportional	5
+	cmm-samplingProcedure	Probability: Stratified: Disproportional	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Probability: Stratified: Disproportional	6
+	cmm-samplingProcedure	Probability: Cluster	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Probability: Cluster	7
+	cmm-samplingProcedure	Probability: Cluster: Simple random	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Probability: Cluster: Simple random	8
+	cmm-samplingProcedure	Probability: Cluster: Stratified random	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Probability: Cluster: Stratified random	9
+	cmm-samplingProcedure	Probability: Multistage	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Probability: Multistage	10
+	cmm-samplingProcedure	Non-probability	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Non-probability	11
+	cmm-samplingProcedure	Non-probability: Availability	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Non-probability: Availability	12
+	cmm-samplingProcedure	Non-probability: Purposive	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Non-probability: Purposive	13
+	cmm-samplingProcedure	Non-probability: Quota	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Non-probability: Quota	14
+	cmm-samplingProcedure	Non-probability: Respondent-assisted	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Non-probability: Respondent-assisted	15
+	cmm-samplingProcedure	Mixed probability and non-probability	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Mixed probability and non-probability	16
+	cmm-samplingProcedure	Other	https://ddialliance.org/Specification/DDI-CV/SamplingProcedure_1.1.html#Other	17
+	cmm-collectionMode	Interview	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Interview	0
+	cmm-collectionMode	Face-to-face interview	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Face-to-face interview	1
+	cmm-collectionMode	Face-to-face interview: Computer-assisted (CAPI/CAMI)	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Face-to-face interview: Computer-assisted (CAPI/CAMI)	2
+	cmm-collectionMode	Face-to-face interview: Paper-and-pencil (PAPI)	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Face-to-face interview: Paper-and-pencil (PAPI)	3
+	cmm-collectionMode	Telephone interview	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Telephone interview	4
+	cmm-collectionMode	Telephone interview: Computer-assisted (CATI)	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Telephone interview: Computer-assisted (CATI)	5
+	cmm-collectionMode	E-mail interview	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#E-mail interview	6
+	cmm-collectionMode	Web-based interview	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Web-based interview	7
+	cmm-collectionMode	Self-administered questionnaire	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Self-administered questionnaire	8
+	cmm-collectionMode	Self-administered questionnaire: E-mail	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Self-administered questionnaire: E-mail	9
+	cmm-collectionMode	Self-administered questionnaire: Paper	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Self-administered questionnaire: Paper	10
+	cmm-collectionMode	Self-administered questionnaire: Messaging (SMS/MMS)	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Self-administered questionnaire: Messaging (SMS/MMS)	11
+	cmm-collectionMode	Self-administered questionnaire: Web-based (CAWI)	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Self-administered questionnaire: Web-based (CAWI)	12
+	cmm-collectionMode	Self-administered questionnaire: Computer-assisted (CASI)	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Self-administered questionnaire: Computer-assisted (CASI)	13
+	cmm-collectionMode	Focus group	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Focus group	14
+	cmm-collectionMode	Face-to-face focus group	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Face-to-face focus group	15
+	cmm-collectionMode	Telephone focus group	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Telephone focus group	16
+	cmm-collectionMode	Online focus group	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Online focus group	17
+	cmm-collectionMode	Self-administered writings and/or diaries	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Self-administered writings and/or diaries	18
+	cmm-collectionMode	Self-administered writings and/or diaries: E-mail	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Self-administered writings and/or diaries: E-mail	19
+	cmm-collectionMode	Self-administered writings and/or diaries: Paper	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Self-administered writings and/or diaries: Paper	20
+	cmm-collectionMode	Self-administered writings and/or diaries: Web-based	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Self-administered writings and/or diaries: Web-based	21
+	cmm-collectionMode	Observation	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Observation	22
+	cmm-collectionMode	Field observation	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Field observation	23
+	cmm-collectionMode	Participant field observation	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Participant field observation	24
+	cmm-collectionMode	Non-participant field observation	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Non-participant field observation	25
+	cmm-collectionMode	Laboratory observation	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Laboratory observation	26
+	cmm-collectionMode	Participant laboratory observation	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Participant laboratory observation	27
+	cmm-collectionMode	Non-participant laboratory observation	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Non-participant laboratory observation	28
+	cmm-collectionMode	Computer-based observation	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Computer-based observation	29
+	cmm-collectionMode	Experiment	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Experiment	30
+	cmm-collectionMode	Laboratory experiment	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Laboratory experiment	31
+	cmm-collectionMode	Field/Intervention experiment	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Field/Intervention experiment	32
+	cmm-collectionMode	Web-based experiment	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Web-based experiment	33
+	cmm-collectionMode	Recording	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Recording	34
+	cmm-collectionMode	Content coding	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Content coding	35
+	cmm-collectionMode	Transcription	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Transcription	36
+	cmm-collectionMode	Compilation/Synthesis	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Compilation/Synthesis	37
+	cmm-collectionMode	Summary	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Summary	38
+	cmm-collectionMode	Aggregation	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Aggregation	39
+	cmm-collectionMode	Simulation	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Simulation	40
+	cmm-collectionMode	Measurements and tests	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Measurements and tests	41
+	cmm-collectionMode	Educational measurements and tests	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Educational measurements and tests	42
+	cmm-collectionMode	Physical measurements and tests	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Physical measurements and tests	43
+	cmm-collectionMode	Psychological measurements and tests	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Psychological measurements and tests	44
+	cmm-collectionMode	Other	https://ddialliance.org/Specification/DDI-CV/ModeOfCollection_3.0.html#Other	45
+	cmm-researchInstrument	Questionnaire	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Questionnaire	0
+	cmm-researchInstrument	Structured questionnaire	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Structured questionnaire	1
+	cmm-researchInstrument	Semi-structured questionnaire	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Semi-structured questionnaire	2
+	cmm-researchInstrument	Unstructured questionnaire	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Unstructured questionnaire	3
+	cmm-researchInstrument	Interview scheme and/or themes	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Interview scheme and/or themes	4
+	cmm-researchInstrument	Data collection guidelines	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Data collection guidelines	5
+	cmm-researchInstrument	Data collection guidelines: Observation guide	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Data collection guidelines: Observation guide	6
+	cmm-researchInstrument	Data collection guidelines: Discussion guide	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Data collection guidelines: Discussion guide	7
+	cmm-researchInstrument	Data collection guidelines: Self-administered writings guide	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Data collection guidelines: Self-administered writings guide	8
+	cmm-researchInstrument	Data collection guidelines: Secondary data collection guide	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Data collection guidelines: Secondary data collection guide	9
+	cmm-researchInstrument	Participant tasks	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Participant tasks	10
+	cmm-researchInstrument	Technical instrument(s)	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Technical instrument(s)	11
+	cmm-researchInstrument	Programming script	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Programming script	12
+	cmm-researchInstrument	Other	https://ddialliance.org/Specification/DDI-CV/TypeOfInstrument_1.1.html#Other	13
