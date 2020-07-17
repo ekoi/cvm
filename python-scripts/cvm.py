@@ -42,6 +42,9 @@ def cvlist():
 @app.route("/", methods=['GET', 'POST'])
 def cvmanager():
     keyword = request.args.get("q")
+    limit = request.args.get("l")
+    if limit is None or not limit.isnumeric():
+        limit = 10
     c = request.args.get("code")
     if keyword == 'cvmm-dataverse':
         json_data = create_json_cvm_dataverse(c)
@@ -60,10 +63,9 @@ def cvmanager():
         if request.args.get("voc"):
             vocabulary = request.args.get("voc")
         else:
-            vocabulary = "AnalysisUnit"
-            vocabulary = "TimeMethod"
+            vocabulary = "%20"
 
-        apienvurl = "v1/suggest/Vocabulary/%s/version/1.0/language/en/limit/10/query/%s" % (vocabulary,c)
+        apienvurl = "v1/suggest/Vocabulary/%s/version/1.0/language/en/limit/%s/query/%s" % (vocabulary,limit,c)
         #apiurl = "%s/%s" % (os.environ["APIHOST"], apienvurl)
         apiurl = "%s/%s" % ("http://vocabularies.cessda.eu", apienvurl)
         data = json.loads(requests.get(apiurl, verify=False).text)
