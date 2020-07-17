@@ -63,7 +63,7 @@ def cvmanager():
             vocabulary = "AnalysisUnit"
             vocabulary = "TimeMethod"
 
-        apienvurl = "v1/suggest/Vocabulary/ /version/1.0/language/en/limit/10/query/%s" % (c)
+        apienvurl = "v1/suggest/Vocabulary/%s/version/1.0/language/en/limit/10/query/%s" % (vocabulary,c)
         #apiurl = "%s/%s" % (os.environ["APIHOST"], apienvurl)
         apiurl = "%s/%s" % ("http://vocabularies.cessda.eu", apienvurl)
         data = json.loads(requests.get(apiurl, verify=False).text)
