@@ -1,0 +1,67 @@
+[
+  {
+    "aci": "keyword",
+    "sources": [{
+      "name": "NAME",
+      "url": "https://cvm.dataverse.tk",
+      "vocabs": ["Unit of Analysis"]
+    }],
+    "keys": [
+      "cmm-unitOfAnalysis-vocabulary",
+      "cmm-unitOfAnalysis-term",
+      "cmm-unitOfAnalysis-url"
+    ]
+  },
+  {
+    "aci": "keyword",
+    "sources": [{
+      "name": "NAME",
+      "url": "https://cvm.dataverse.tk",
+      "vocabs": ["Time Method"]
+    }],
+    "keys": [
+      "cmm-timeMethod-vocabulary",
+      "cmm-timeMethod-term",
+      "cmm-timeMethod-url"
+    ]
+  },
+  {
+    "aci": "keyword",
+    "sources": [{
+      "name": "NAME",
+      "url": "https://cvm.dataverse.tk",
+      "vocabs": ["Sampling Procedure"]
+    }],
+    "keys": [
+      "cmm-samplingProcedure-vocabulary",
+      "cmm-samplingProcedure-term",
+      "cmm-samplingProcedure-url"
+    ]
+  },
+  {
+    "aci": "keyword",
+    "sources": [{
+      "name": "NAME",
+      "url": "https://cvm.dataverse.tk",
+      "vocabs": ["Collection Mode"]
+    }],
+    "keys": [
+      "cmm-collectionMode-vocabulary",
+      "cmm-collectionMode-term",
+      "cmm-collectionMode-url"
+    ]
+  },
+  {
+    "aci": "keyword",
+    "sources": [{
+      "name": "NAME",
+      "url": "https://cvm.dataverse.tk",
+      "vocabs": ["Type of Research Instrument"]
+    }],
+    "keys": [
+      "cmm-researchInstrument-vocabulary",
+      "cmm-researchInstrument-term",
+      "cmm-researchInstrument-url"
+    ]
+  }
+]
