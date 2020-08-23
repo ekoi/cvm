@@ -1,7 +1,7 @@
 version: '3'
 services:
     postgres:
-      container_name: db
+      container_name: postgres
       ports:
         - "5432:5432"
       image: library/postgres:10.13
@@ -15,7 +15,7 @@ services:
         - "POSTGRES_PORT=5432"
       volumes:
         - database-data:/var/lib/postgresql/data/ # persist data even if container shuts down
-        - ./dvndb-v20-cvm.sql:/docker-entrypoint-initdb.d/dvndb-v20-cvm.sql
+#        - ./dvndb-v20-cvm.sql:/docker-entrypoint-initdb.d/reference_data.sql
 
     solr:
       image: ekoindarto/solr-cvm:latest
@@ -31,7 +31,7 @@ services:
         - solr-data:/opt/solr/server/solr/collection1/data
 
     dataverse:
-        image: ekoindarto/dataverse-cvm:latest
+        image: ekoindarto/dataverse-cvm:5.0
         container_name: dataverse
         privileged: true
         ports:
@@ -39,8 +39,12 @@ services:
         - "8080:8080"
         - "4848:4848"
         environment:
+          - "CVM_SERVER_NAME=CESSDA"
+          - "CVM_SERVER_URL=http://cvm.dataverse.tk"
+          - "CVM_TSV_SOURCE=https://raw.githubusercontent.com/ekoi/speeltuin/master/resources/CMM_Custom_MetadataBlock.tsv"
           - "HOST_DNS_ADDRESS=0.0.0.0"
           - "LANG=en"
+          - "cvManager=http://"
           - "BUNDLEPROPERTIES=Bundle.properties"
           - "ADMIN_EMAIL=admin@localhost"
           - "MAIL_SERVER=mailrelay"
@@ -48,7 +52,7 @@ services:
           - "POSTGRES_PORT=5432"
           - "POSTGRES_DATABASE=dvndb"
           - "POSTGRES_USER=dvnuser"
-          - "POSTGRES_PASSWORD=dvnsecret"
+          - "PGPASSWORD=dvnsecret"
           - "SOLR_LOCATION=solr:8983"
           - "TWORAVENS_LOCATION=NOT INSTALLED"
           - "RSERVE_HOST=localhost"
