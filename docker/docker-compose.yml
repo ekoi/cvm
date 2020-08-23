@@ -15,7 +15,6 @@ services:
         - "POSTGRES_PORT=5432"
       volumes:
         - database-data:/var/lib/postgresql/data/ # persist data even if container shuts down
-#        - ./dvndb-v20-cvm.sql:/docker-entrypoint-initdb.d/reference_data.sql
 
     solr:
       image: ekoindarto/solr-cvm:latest
@@ -39,9 +38,9 @@ services:
         - "8080:8080"
         - "4848:4848"
         environment:
-          - "CVM_SERVER_NAME=CESSDA"
-          - "CVM_SERVER_URL=http://cvm.dataverse.tk"
-          - "CVM_TSV_SOURCE=https://raw.githubusercontent.com/ekoi/speeltuin/master/resources/CMM_Custom_MetadataBlock.tsv"
+          - "CVM_SERVER_NAME=CESSDA" #Optional
+          - "CVM_SERVER_URL=http://cvm.dataverse.tk" #Optional
+          - "CVM_TSV_SOURCE=https://raw.githubusercontent.com/ekoi/speeltuin/master/resources/CMM_Custom_MetadataBlock.tsv" #Optional
           - "HOST_DNS_ADDRESS=0.0.0.0"
           - "LANG=en"
           - "cvManager=http://"
