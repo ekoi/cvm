@@ -1,4 +1,8 @@
 #!/bin/bash
+################################################################################
+# This script is used to configure a Dataverse installation from ...
+# It is used solely for changing Database settings!
+################################################################################
 echo "--" > /tmp/status.log;
 until curl -sS -f "http://dataverse:8080/robots.txt" -m 2 2>&1 > /dev/null;
     do echo ">>>>>>>> Waiting for Dataverse...." >> /tmp/status.log; echo "---- Dataverse is not ready...." >> /tmp/status.log; sleep 20; done;
