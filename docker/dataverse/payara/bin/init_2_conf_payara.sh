@@ -122,20 +122,24 @@ sed -i ${PAYARA_DIR}/glassfish/domains/${DOMAIN_NAME}/config/jhove.conf -e "s:/u
 
 # 6. Disable phone home. Always.
 echo "disable-phome-home" >> ${PREBOOT_COMMANDS}
-
+# 7. Download the war file from the given docker environment
+if [ "${WAR_FILE}" ]; then
+    echo "Using ${WAR_FILE}" >> /tmp/status.log;
+    wget -O ${HOME_DIR}/dvinstall/dataverse.war ${WAR_FILE}
+elif [ "${GIT_SOURCE}" ]; then
+    echo "Clone dataverse from ${GIT_SOURCE}" >> /tmp/status.log;
+    git clone ${DATAVERSE_SOURCE} /tmp/cvm-autocomplete;
+    cd /tmp/cvm-autocomplete; git fetch; git pull origin ${GIT_BRANCH}; mvn install -DskipTests;
+    mv /tmp/cvm-autocomplete/target/*.war ${HOME_DIR}/dvinstall/dataverse.war;
+else
+    echo "Use the standard dataverse.war from IQSS (inside dvinstall.zip)" >> /tmp/status.log;
+fi
 if [ "${CVM_SERVER_NAME}" ]; then
-    echo "--------------------------**************************************************---------" >> /tmp/status.log;
+    echo "Dowload tsv file from ${CVM_SERVER_NAME}" >> /tmp/status.log;
     sleep 10;
     wget -O ${HOME_DIR}/dvinstall/data/metadatablocks/cvmm.tsv ${CVM_TSV_SOURCE}
     echo "Execute cvm.sh to create cvm-setting.json">> /tmp/status.log;
-
-    ${SCRIPT_DIR}/cvm.sh ${HOME_DIR}/dvinstall/data/metadatablocks/cvmm.tsv ${HOME_DIR}/dvinstall/data/cvm-setting.json
-
-    echo "Clone the ekoi/dataverse" >> /tmp/status.log;
-    git clone https://github.com/ekoi/dataverse /tmp/v5.0-cvm-autocomplete;
-    cd /tmp/v5.0-cvm-autocomplete; git fetch; git pull origin v5.0-cvm-autocomplete; mvn install -DskipTests;
-    mv /tmp/v5.0-cvm-autocomplete/target/dataverse-5.0.war ${HOME_DIR}/dvinstall/dataverse.war;
-    echo "The original dataverse.war is replaced." >> /tmp/status.log;
+    ${SCRIPT_DIR}/generate-cvm-setting.sh ${HOME_DIR}/dvinstall/data/metadatablocks/cvmm.tsv ${HOME_DIR}/dvinstall/data/cvm-setting.json
 fi
 
 

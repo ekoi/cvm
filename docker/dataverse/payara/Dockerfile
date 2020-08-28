@@ -5,7 +5,7 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 
 FROM payara/server-full:5.2020.3
-LABEL maintainer="FDM FZJ <forschungsdaten@fz-juelich.de>"
+LABEL maintainer="Eko Indarto <eko.indarto@dans.knaw.nl>"
 
 ARG VERSION=5.0
 ARG DOMAIN=domain1
