@@ -76,11 +76,11 @@ curl -s -X POST -H "Content-type:application/json" -d "[\"authorName\",\"subject
 echo
 
 if [ "${CVM_SERVER_NAME}" ]; then
-    echo "________________________________________START____________________________" >> /tmp/status.log
+    echo "Uploading ${CVM_SERVER_NAME} metadatablock" >> /tmp/status.log
     curl http://localhost:8080/api/admin/datasetfield/load -X POST --data-binary @data/metadatablocks/cvmm.tsv -H "Content-type: text/tab-separated-values"
 
         curl -H "Content-Type: application/json" -X PUT --data-binary @data/cvm-setting.json "$SERVER/admin/settings/:CVMConf"
-        echo "____________________________________END  EKO________________________________" >> /tmp/status.log
+        echo "Uploading cvm-setting.json" >> /tmp/status.log
 
 fi
 
