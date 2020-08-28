@@ -42,6 +42,8 @@ services:
           - "CVM_SERVER_URL=https://cvm.dataverse.tk" #Optional
           - "CVM_TSV_SOURCE=https://raw.githubusercontent.com/ekoi/speeltuin/master/resources/CMM_Custom_MetadataBlock.tsv" #Optional
           - "WAR_FILE=https://github.com/IQSS/dataverse-docker/releases/download/5.0.1-cvm/dataverse-5_0_cvm.war"
+#          - "GIT_SOURCE=https://github.com/ekoi/dataverse"
+#          - "GIT_BRANCH=v5.0-cvm-autocomplete"
           - "HOST_DNS_ADDRESS=0.0.0.0"
           - "LANG=en"
           - "BUNDLEPROPERTIES=Bundle.properties"

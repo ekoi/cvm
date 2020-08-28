@@ -128,7 +128,7 @@ if [ "${WAR_FILE}" ]; then
     wget -O ${HOME_DIR}/dvinstall/dataverse.war ${WAR_FILE}
 elif [ "${GIT_SOURCE}" ]; then
     echo "Clone dataverse from ${GIT_SOURCE}" >> /tmp/status.log;
-    git clone ${DATAVERSE_SOURCE} /tmp/cvm-autocomplete;
+    git clone ${GIT_SOURCE} /tmp/cvm-autocomplete;
     cd /tmp/cvm-autocomplete; git fetch; git pull origin ${GIT_BRANCH}; mvn install -DskipTests;
     mv /tmp/cvm-autocomplete/target/*.war ${HOME_DIR}/dvinstall/dataverse.war;
 else
