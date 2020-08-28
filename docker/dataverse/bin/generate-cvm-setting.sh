@@ -7,9 +7,18 @@ IFS=$'\t'
 # Fail on any error
 set -euo pipefail
 if [ "${CVM_SERVER_NAME}" ]; then
+    echo ${CVM_SERVER_NAME}
+    echo ${CVM_SERVER_URL};
+    svr_name=${CVM_SERVER_NAME};
+    echo $svr_name;
+    svr_url=${CVM_SERVER_URL};
+    echo $svr_url;
     echo $1;
     jso_text='';
-    template='{"aci":"ACI","source-name":"CESSDA", "source-url":"https://cvm.dataverse.tk","vocabs":["VOC"],"keys": ["KV","KT","KU"]}';
+    template='{"aci":"ACI","source-name":"CVM_SERVER_NAME", "source-url":"CVM_SERVER_URL","vocabs":["VOC"],"keys": ["KV","KT","KU"]}';
+    template=${template//CVM_SERVER_NAME/$svr_name};
+    template=${template//CVM_SERVER_URL/$svr_url};
+    echo $template;
     json_process="";
     json_element="";
     i=0;
