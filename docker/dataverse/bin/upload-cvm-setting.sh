@@ -22,7 +22,7 @@ dvnCvmConfClean=`echo $dvnCvmConf | sed 's/[\][n]//g' | sed 's/\\\//g' | sed 's:
 #TODO: validate $dvnCvmConfClean
 
 #Create a pretty-print json file
-# echo $dvnCvmConfClean | jq . > cvm-setting.json
+echo $dvnCvmConfClean | jq . > cvm-setting.json
 
 #Get all aci's key
 acis=$(echo $dvnCvmConfClean | jq '.[].aci')
