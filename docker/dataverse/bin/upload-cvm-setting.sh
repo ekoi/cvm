@@ -1,4 +1,10 @@
 #!/bin/bash
+################################################################################
+# This script is used to merge the existing CVMConf with the given cvm-setting
+# in json format and upload it the server.
+# It requires two parameters: the Dataverse URL and the URL or file location of
+# the cvm-setting that want to add.
+################################################################################
 url="$1/api/admin/settings/:CVMConf";
 echo "Retrieving setting from $url"
 dvnCvmConfSetting=$(curl -Ls $url)
