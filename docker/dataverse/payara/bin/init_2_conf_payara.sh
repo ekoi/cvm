@@ -135,8 +135,8 @@ else
     echo "Use the standard dataverse.war from IQSS (inside dvinstall.zip)" >> /tmp/status.log;
 fi
 if [ "${CVM_SERVER_NAME}" ]; then
-    echo "Dowload tsv file from ${CVM_SERVER_NAME}" >> /tmp/status.log;
-    sleep 10;
+    echo "Dowload tsv file from ${CVM_TSV_SOURCE}" >> /tmp/status.log;
+    sleep 5;
     wget -O ${HOME_DIR}/dvinstall/data/metadatablocks/cvmm.tsv ${CVM_TSV_SOURCE}
     echo "Execute cvm.sh to create cvm-setting.json">> /tmp/status.log;
     ${SCRIPT_DIR}/generate-cvm-setting.sh ${HOME_DIR}/dvinstall/data/metadatablocks/cvmm.tsv ${HOME_DIR}/dvinstall/data/cvm-setting.json
