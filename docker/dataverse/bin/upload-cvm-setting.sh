@@ -86,14 +86,3 @@ if jq -e . >/dev/null 2>&1 < cvm-setting-combined.json; then
 else
     echo "Failed to parse JSON"
 fi
-
-
-
-# cvmConf=`echo $dvnCvmConf | sed 's/[\][n]//g' | sed 's/\\\//g' | sed 's:^.\(.*\).$:\1:'`
-# json1=$(for row in $(echo "${cvmConf}" | jq -r '.[] | @base64'); do _jq() { echo ${row} | base64 --decode;   }; echo $(_jq); echo -n ",";done)
-# if jq -e . >/dev/null 2>&1 <<<"$json1"; then
-#     echo "Parsed JSON successfully"
-# else
-#     echo "Failed to parse JSON"
-# fi
-
