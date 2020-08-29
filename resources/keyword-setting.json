@@ -1,6 +1,7 @@
 [{
   "aci":"keyword",
-  "url":"https://cvm.dataverse.tk",
+  "source-name": "CESSDA",
+  "source-url": "https://cvm.dataverse.tk",
   "vocabs":["AggregationMethod", "AnalysisUnit", "CdcPublisherNames", "CessdaPersistentIdentifierTypes", "CharacterSet"
   , "CommonalityType", "ContributorRole", "DataSourceType", "DataType", "DateType", "GeneralDataFormat"
   , "LanguageProficiency", "LifecycleEventType", "ModeOfCollection", "ResponseUnit", "SamplingProcedure", "SoftwarePackage"
