@@ -97,8 +97,6 @@ else
     inputJsonFromFile=$(echo $(<$2))
     aciFromFile=$(echo $inputJsonFromFile | jq '.[].aci')
 #     echo $aciFromFile
-
-    #TODO: Refactoring using function to prevent repeating code
     echo "Checking for any duplicate"
     checkDuplicateAci "$acis" "$aciFromFile"
     echo "No duplicate found."
