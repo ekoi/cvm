@@ -5,6 +5,31 @@
 # It requires two parameters: the Dataverse URL and the URL or file location of
 # the cvm-setting that want to add.
 ################################################################################
+#Function for validate a json file
+validateJson(){
+    if jq -e . >/dev/null 2>&1 < $1; then
+        echo "Parsed JSON successfully"
+        return 0
+    else
+        echo "Failed to parse JSON"
+        return 1
+    fi
+}
+
+#Function check duplicate
+checkDuplicateAci(){
+for i in $1
+    do
+        for j in $2
+        do
+           if [[ $i == $j ]]; then
+               echo "ERROR: >>> Duplicate aci found: $j"
+               exit
+           fi
+    done
+done
+}
+
 dir_tmp_name="generated"
 if [ "${GENERATED_DIR}" ]; then
     dir_tmp_name="${GENERATED_DIR}"
@@ -13,7 +38,7 @@ fi
 if [ -d "$dir_tmp_name" ]; then
 #     echo "Removing $dir_tmp_name"
 #     rm -rf "$dir_tmp_name"
-    echo "$dir_tmp_name exist"
+    echo "$dir_tmp_name folder exist."
 else
     mkdir -p $dir_tmp_name
 fi
@@ -38,7 +63,9 @@ dvnCvmConf=$(echo $dvnCvmConfSetting | jq '.data.message')
 dvnCvmConfClean=`echo $dvnCvmConf | sed 's/[\][n]//g' | sed 's/\\\//g' | sed 's:^.\(.*\).$:\1:'`
 # echo $dvnCvmConfClean
 
-#TODO: validate $dvnCvmConfClean
+#Validate $dvnCvmConfClean
+echo "Validate the cvm-setting.json from Dataverse"
+if validateJson $dir_tmp_name/cvm-setting.json; then echo 'cvm-setting.json is valid.'; else echo 'ERROR: cvm-setting.json is not valid.'; exit; fi
 
 #Create a pretty-print json file
 echo $dvnCvmConfClean | jq . > $dir_tmp_name/cvm-setting.json
@@ -51,57 +78,42 @@ echo "Retrieving json from $2"
 # inputJson=""
 if [[ "$2" =~ ^http* ]]; then
     inputJsonFromUrl=$(curl -Ls $2)
-    #TODO: Validate $inputJsonFromUrl
+    echo $inputJsonFromUrl > $dir_tmp_name/cvm-setting-from-url.json
+    #Validate $inputJsonFromUrl
+    if validateJson $dir_tmp_name/cvm-setting-from-url.json; then echo "$2 is valid"; else echo "ERROR: $2 is not valid."; exit; fi
     aciFromUrl=$(echo $inputJsonFromUrl | jq '.[].aci')
 #     echo $aciFromUrl
 
     #TODO: Refactoring using function to prevent repeating code
     echo "Checking for any duplicate"
-    for i in $acis
-    do
-        for j in $aciFromUrl
-        do
-           if [[ $i == $j ]]; then
-               echo "ERROR Duplicate aci found: $j"
-               exit
-           fi
-        done
-    # echo $i;
-    done
+    checkDuplicateAci "$acis" "$aciFromUrl"
+
     echo "No duplicate found. Write the json from $2 to $dir_tmp_name/cvm-setting-from-url.json"
-    echo $inputJsonFromUrl > $dir_tmp_name/cvm-setting-from-url.json
     echo "Write the combined json to cvm-setting-combined.json"
     jq -s '[.[][]]' $dir_tmp_name/cvm-setting.json $dir_tmp_name/cvm-setting-from-url.json > $dir_tmp_name/cvm-setting-combined.json
 else
+    #Validate $json from file
+    if validateJson $2; then echo "$2 is valid"; else echo "ERROR: $2 is not valid."; exit; fi
     inputJsonFromFile=$(echo $(<$2))
-    #TODO: Validate $json from file
     aciFromFile=$(echo $inputJsonFromFile | jq '.[].aci')
 #     echo $aciFromFile
 
     #TODO: Refactoring using function to prevent repeating code
     echo "Checking for any duplicate"
-    for i in $acis
-        do
-            for j in $aciFromFile
-            do
-               if [[ $i == $j ]]; then
-                   echo "ERROR Duplicate aci found: $j"
-                   exit
-               fi
-            done
-        # echo $i;
-        done
+    checkDuplicateAci "$acis" "$aciFromFile"
     echo "No duplicate found."
     echo "Write the combined json to cvm-setting-combined.json"
     jq -s '[.[][]]' $dir_tmp_name/cvm-setting.json $2 > $dir_tmp_name/cvm-setting-combined.json
 fi
 
-if jq -e . >/dev/null 2>&1 < $dir_tmp_name/cvm-setting-combined.json; then
-    echo "Parsed JSON successfully"
+if validateJson $dir_tmp_name/cvm-setting-combined.json; then
+    echo 'cvm-setting-combined.json is valid'
     echo "Uploading cvm-setting-combined.json"
-    #Push to the server
-    uploadedResult=$(curl -H "Content-Type: application/json" -X PUT --data-binary @$dir_tmp_name/cvm-setting-combined.json "$1/api/admin/settings/:CVMConf")
-    echo $uploadedResult | jq .
+        #Push to the server
+        uploadedResult=$(curl -H "Content-Type: application/json" -X PUT --data-binary @$dir_tmp_name/cvm-setting-combined.json "$1/api/admin/settings/:CVMConf")
+        echo $uploadedResult | jq .
 else
-    echo "Failed to parse JSON"
+    echo 'ERROR: cvm-setting-combined.json is not valid.'
+    exit
 fi
+
