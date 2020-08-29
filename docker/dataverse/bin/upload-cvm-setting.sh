@@ -5,6 +5,19 @@
 # It requires two parameters: the Dataverse URL and the URL or file location of
 # the cvm-setting that want to add.
 ################################################################################
+dir_tmp_name="generated"
+if [ "${GENERATED_DIR}" ]; then
+    dir_tmp_name="${GENERATED_DIR}"
+fi
+
+if [ -d "$dir_tmp_name" ]; then
+#     echo "Removing $dir_tmp_name"
+#     rm -rf "$dir_tmp_name"
+    echo "$dir_tmp_name exist"
+else
+    mkdir -p $dir_tmp_name
+fi
+
 url="$1/api/admin/settings/:CVMConf";
 echo "Retrieving setting from $url"
 dvnCvmConfSetting=$(curl -Ls $url)
@@ -28,7 +41,7 @@ dvnCvmConfClean=`echo $dvnCvmConf | sed 's/[\][n]//g' | sed 's/\\\//g' | sed 's:
 #TODO: validate $dvnCvmConfClean
 
 #Create a pretty-print json file
-echo $dvnCvmConfClean | jq . > cvm-setting.json
+echo $dvnCvmConfClean | jq . > $dir_tmp_name/cvm-setting.json
 
 #Get all aci's key
 acis=$(echo $dvnCvmConfClean | jq '.[].aci')
@@ -55,10 +68,10 @@ if [[ "$2" =~ ^http* ]]; then
         done
     # echo $i;
     done
-    echo "No duplicate found. Write the json from $2 to cvm-setting-from-url.json"
-    echo $inputJsonFromUrl > cvm-setting-from-url.json
+    echo "No duplicate found. Write the json from $2 to $dir_tmp_name/cvm-setting-from-url.json"
+    echo $inputJsonFromUrl > $dir_tmp_name/cvm-setting-from-url.json
     echo "Write the combined json to cvm-setting-combined.json"
-    jq -s '[.[][]]' cvm-setting.json cvm-setting-from-url.json > cvm-setting-combined.json
+    jq -s '[.[][]]' $dir_tmp_name/cvm-setting.json $dir_tmp_name/cvm-setting-from-url.json > $dir_tmp_name/cvm-setting-combined.json
 else
     inputJsonFromFile=$(echo $(<$2))
     #TODO: Validate $json from file
@@ -80,14 +93,14 @@ else
         done
     echo "No duplicate found."
     echo "Write the combined json to cvm-setting-combined.json"
-    jq -s '[.[][]]' cvm-setting.json $2 > cvm-setting-combined.json
+    jq -s '[.[][]]' $dir_tmp_name/cvm-setting.json $2 > $dir_tmp_name/cvm-setting-combined.json
 fi
 
-if jq -e . >/dev/null 2>&1 < cvm-setting-combined.json; then
+if jq -e . >/dev/null 2>&1 < $dir_tmp_name/cvm-setting-combined.json; then
     echo "Parsed JSON successfully"
     echo "Uploading cvm-setting-combined.json"
     #Push to the server
-    uploadedResult=$(curl -H "Content-Type: application/json" -X PUT --data-binary @cvm-setting-combined.json "$1/api/admin/settings/:CVMConf")
+    uploadedResult=$(curl -H "Content-Type: application/json" -X PUT --data-binary @$dir_tmp_name/cvm-setting-combined.json "$1/api/admin/settings/:CVMConf")
     echo $uploadedResult | jq .
 else
     echo "Failed to parse JSON"
