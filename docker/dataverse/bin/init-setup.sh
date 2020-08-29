@@ -79,8 +79,8 @@ if [ "${CVM_SERVER_NAME}" ]; then
     echo "Uploading ${CVM_SERVER_NAME} metadatablock" >> /tmp/status.log
     curl http://localhost:8080/api/admin/datasetfield/load -X POST --data-binary @data/metadatablocks/cvmm.tsv -H "Content-type: text/tab-separated-values"
 
-        curl -H "Content-Type: application/json" -X PUT --data-binary @data/cvm-setting.json "$SERVER/admin/settings/:CVMConf"
-        echo "Uploading cvm-setting.json" >> /tmp/status.log
+    curl -H "Content-Type: application/json" -X PUT --data-binary @data/cvm-setting.json "$SERVER/admin/settings/:CVMConf"
+    echo "Uploading cvm-setting.json" >> /tmp/status.log
 
 fi
 
