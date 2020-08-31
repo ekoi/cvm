@@ -1,0 +1,11 @@
+#metadataBlock	name	dataverseAlias	displayName												
+	archaeology-nl-metadata		Archaeology Metadata (Dutch/NL)
+#datasetField	name	title	description	watermark	 fieldType	displayOrder	displayFormat	advancedSearchField	allowControlledVocabulary	allowmultiples	facetable	displayoncreate	required	parent	metadatablock_id
+	archaeology-nlSubjectABRcomplex-cv	Subject	Select the keywords from the ‘Archeologisch Basis Register' (ABR) that describe the research project and dataset.		none	311		FALSE	FALSE	TRUE	FALSE	FALSE	FALSE		archaeology-nl-metadata
+	archaeology-nlSubjectABRcomplex-vocabulary	Vocabulary	The controlled vocabulary that is used.		TEXT	312		TEXT	FALSE	FALSE	FALSE	FALSE	FALSE	archaeology-nlSubjectABRcomplex-cv	archaeology-nl-metadata
+	archaeology-nlSubjectABRcomplex-term	ABR complex Term	The term picked from the controlled vocabulary.		TEXT	313		TRUE	TRUE	FALSE	TRUE	FALSE	FALSE	archaeology-nlSubjectABRcomplex-cv	archaeology-nl-metadata
+	archaeology-nlSubjectABRcomplex-url	VocabularyURL	The URL for the term chosen from the vocabulary.		URL	314		FALSE	TRUE	FALSE	FALSE	FALSE	FALSE	archaeology-nlSubjectABRcomplex-cv	archaeology-nl-metadata
+	archaeology-nlTemporalABRperiod-cv	Temporal	Select the period of time to which the data relate from the 'Archeologisch Basis Register' (ABR).		none	721		FALSE	FALSE	TRUE	FALSE	FALSE	FALSE		archaeology-nl-metadata
+	archaeology-nlTemporalABRperiod-vocabulary	Vocabulary	The controlled vocabulary that is used.		TEXT	722		TEXT	FALSE	FALSE	FALSE	FALSE	FALSE	archaeology-nlTemporalABRperiod-cv	archaeology-nl-metadata
+	archaeology-nlTemporalABRperiod-term	Temporal Term	The term picked from the controlled vocabulary.		TEXT	723		TRUE	TRUE	FALSE	TRUE	FALSE	FALSE	archaeology-nlTemporalABRperiod-cv	archaeology-nl-metadata
+	archaeology-nlTemporalABRperiod-url	VocabularyURL	The URL for the term chosen from the vocabulary.		URL	724		FALSE	TRUE	FALSE	FALSE	FALSE	FALSE	archaeology-nlTemporalABRperiod-cv	archaeology-nl-metadata
