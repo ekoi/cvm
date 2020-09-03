@@ -1,7 +1,6 @@
 #!/bin/bash
 ################################################################################
-# This script is used to configure a Dataverse installation from ...
-# It is used solely for changing Database settings!
+# This script is used to generate cvm-setting.json file
 ################################################################################
 IFS=$'\t'
 # Fail on any error
