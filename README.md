@@ -27,13 +27,15 @@ Docker-compose          | 1.26.2
 `docker-compose up -d`
 
 Wait for some minutes. 
-To find out if the application is ready, check the solr log:
-`docker log -f solr` 
-The Dataverse is ready when the following line is showed in the solr log:
+To find out if the application is ready, check the dataverse log:
+`docker log -f dataverse` 
+The Dataverse is ready when the following line is showed in the dataverse log:
 
-`-----Scheme updated------`
+`Found Storage Driver: local for Local`
 
 Navigate to [http://localhost:8080/](http://localhost:8080/) in your browser.
+username: dataverseAdmin
+password: admin
 
 ## Stop Dataverse
 `docker-compose down`
