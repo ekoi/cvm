@@ -134,7 +134,7 @@ elif [ "${GIT_SOURCE}" ]; then
 else
     echo "Use the standard dataverse.war from IQSS (inside dvinstall.zip)" >> /tmp/status.log;
 fi
-if [ "${CVM_SERVER_NAME}" ]; then
+if [ "${CVM_SERVER_URL}" ]; then
     echo "Dowload tsv file from ${CVM_TSV_SOURCE}" >> /tmp/status.log;
     sleep 5;
     wget -O ${HOME_DIR}/dvinstall/data/metadatablocks/cvmm.tsv ${CVM_TSV_SOURCE}

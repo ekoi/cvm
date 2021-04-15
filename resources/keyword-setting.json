@@ -1,11 +1,7 @@
 [{
-  "aci":"keyword",
-  "source-name": "CESSDA",
-  "source-url": "https://cvm.dataverse.tk",
-  "vocabs":["AggregationMethod", "AnalysisUnit", "CdcPublisherNames", "CessdaPersistentIdentifierTypes", "CharacterSet"
-  , "CommonalityType", "ContributorRole", "DataSourceType", "DataType", "DateType", "GeneralDataFormat"
-  , "LanguageProficiency", "LifecycleEventType", "ModeOfCollection", "ResponseUnit", "SamplingProcedure", "SoftwarePackage"
-  , "SummaryStatisticType", "TimeMethod", "TimeZone", "TopicClassification", "TypeOfAddress", "TypeOfConceptGroup"
-  , "TypeOfInstrument", "TypeOfNote", "TypeOfTelephone"],
-  "keys": ["keywordVocabulary","keywordValue","keywordVocabularyURI"]
+  "vocab-name":"keyword",
+  "cvm-url":"https://ns.dataverse.tk/",
+  "language":"en",
+  "vocabs":["MeSH", "LCSH"],
+  "vocab-codes": ["keywordVocabulary","keywordValue","keywordVocabularyURI"]
 }]

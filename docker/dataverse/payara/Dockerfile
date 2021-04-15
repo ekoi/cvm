@@ -7,7 +7,7 @@
 FROM payara/server-full:5.2020.3
 LABEL maintainer="Eko Indarto <eko.indarto@dans.knaw.nl>"
 
-ARG VERSION=5.0
+ARG VERSION=5.1.1
 ARG DOMAIN=domain1
 
 ENV DATA_DIR=/data\

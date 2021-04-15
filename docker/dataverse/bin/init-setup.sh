@@ -75,8 +75,8 @@ echo "Set the default facets for Root" >> /tmp/status.log
 curl -s -X POST -H "Content-type:application/json" -d "[\"authorName\",\"subject\",\"keywordValue\",\"dateOfDeposit\"]" $SERVER/dataverses/:root/facets/?key=$adminKey
 echo
 
-if [ "${CVM_SERVER_NAME}" ]; then
-    echo "Uploading ${CVM_SERVER_NAME} metadatablock" >> /tmp/status.log
+if [ "${CVM_SERVER_URL}" ]; then
+    echo "Uploading ${CVM_TSV_SOURCE} metadatablock" >> /tmp/status.log
     curl http://localhost:8080/api/admin/datasetfield/load -X POST --data-binary @data/metadatablocks/cvmm.tsv -H "Content-type: text/tab-separated-values"
 
     curl -H "Content-Type: application/json" -X PUT --data-binary @data/cvm-setting.json "$SERVER/admin/settings/:CVMConf"

@@ -1,22 +1,22 @@
 #!/bin/bash
 ################################################################################
-# This script is used to configure a Dataverse installation from ...
-# It is used solely for changing Database settings!
+# This script is used to generate cvm-setting.json file
 ################################################################################
 IFS=$'\t'
 # Fail on any error
 set -euo pipefail
-if [ "${CVM_SERVER_NAME}" ]; then
-    echo ${CVM_SERVER_NAME}
-    echo ${CVM_SERVER_URL};
-    svr_name=${CVM_SERVER_NAME};
-    echo $svr_name;
+if [ "${CVM_SERVER_URL}" ]; then
+    cvm_lang=${CVM_VOCAB_LANG};
+    if [[ "$cvm_lang" == "" ]] ; then
+        echo "Using default language: en"
+        cvm_lang="en";
+    fi
     svr_url=${CVM_SERVER_URL};
     echo $svr_url;
     echo $1;
     jso_text='';
-    template='{"aci":"ACI","source-name":"CVM_SERVER_NAME", "source-url":"CVM_SERVER_URL","vocabs":["VOC"],"keys": ["KV","KT","KU"]}';
-    template=${template//CVM_SERVER_NAME/$svr_name};
+    template='{"vocab-name":"AKMI_KEY", "cvm-url":"CVM_SERVER_URL", "language":"LANGUAGE", "vocabs":["VOC"],"vocab-codes": ["KV","KT","KU"]}';
+    template=${template//LANGUAGE/$cvm_lang};
     template=${template//CVM_SERVER_URL/$svr_url};
     echo $template;
     json_process="";
@@ -25,7 +25,7 @@ if [ "${CVM_SERVER_NAME}" ]; then
     while read KEY VOC OTHERS; do
       if [[ "$json_process" == "" && "$KEY" == *-cv ]]; then
         json_element=${template//VOC/$VOC};
-        json_element=${json_element//ACI/$KEY};
+        json_element=${json_element//AKMI_KEY/$KEY};
         json_process="create"
       elif [[ "$json_process" == "create" ]]; then
         case $KEY in
